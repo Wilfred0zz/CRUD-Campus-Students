@@ -11,11 +11,23 @@ const AllCampusesView = (props) => {
   return (
     <div className="all-campuses">
       {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
-          <Link to={`/campuses/${campus.id}`}>
-            <h1>{campus.name}</h1>
-          </Link>
-          <p>{campus.description}</p>
+        <div className="campus-content" key={campus.id}>
+          <div className="campus-image">
+            <img src={`${campus.imageUrl}`} />
+          </div>
+          <div className="campus-box">
+            <div className="campus-text">
+              <Link to={`/campuses/${campus.id}`}>
+                <h1> {campus.name}</h1>
+              </Link>
+              <h4>Address: {campus.address}</h4>
+              <p>Description: {campus.description}</p>
+              <div className="button-end">
+                <button className="">Edit</button>
+                <button className="">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
       ))}
     </div>

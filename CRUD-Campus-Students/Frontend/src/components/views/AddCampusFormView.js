@@ -3,41 +3,46 @@ import PropTypes from "prop-types";
 
 const AddCampusFormView = (props) => {
   return (
-    <div>
-      <form onSubmit={props.handleSubmit}>
-        <div>
-          Name:{" "}
+    <div className="addcampuses-panel">
+      <form className="addcampus-form" onSubmit={props.handleSubmit}>
+        <div className="input-style-row">
+          {/* Name:{" "} */}
           <input
             value={props.name}
             name="name"
+            placeholder="Campus Name"
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
-          Address:{" "}
+        <div className="input-style-row">
+          {/* Address:{" "} */}
           <input
             value={props.address}
             name="address"
+            placeholder="Campus Address"
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
-          Description:{" "}
+        <div className="input-style-row">
+          {/* Description:{" "} */}
           <input
             value={props.description}
             name="description"
+            placeholder="Campus Description"
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
-          Image Url:{" "}
+        <div className="input-style-row">
+          {/* Image Url:{" "} */}
           <input
             value={props.imageUrl}
             name="imageUrl"
+            placeholder="Campus Image URL"
             onChange={props.handleChange}
           ></input>
         </div>
-        <button>Create Campus</button>
+
+        <button className="create-campus-button">Create Campus</button>
       </form>
     </div>
   );
