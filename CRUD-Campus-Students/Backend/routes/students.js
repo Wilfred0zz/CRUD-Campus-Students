@@ -103,3 +103,5 @@ router.delete("/:id",
         }
     }
 )//end router.delete
+
+module.exports = router;
