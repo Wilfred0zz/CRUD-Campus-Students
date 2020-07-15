@@ -13,12 +13,12 @@ import React from "react";
 
 const CampusView = (props) => {
   return (
-    <>
+    <div>
       <h1>{props.campus.name}</h1>
       <h3>{props.campus.address}</h3>
       <p>{props.campus.description}</p>
       <p>{props.campus.students} Students</p>
-    </>
+    </div>
   );
 };
 
