@@ -1,4 +1,21 @@
-.nav-item .nav-link {
-  color: white;
-  padding: 20px;
+.page-container {
+  width: 100%;
+}
+
+.app-nav {
+  background: #fff;
+  height: 100px;
+  padding-top: 35px;
+}
+
+.nav-item {
+  margin-top: 20px;
+  text-decoration: none;
+  padding: 30px;
+  color: #333;
+  font-weight: 600;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
 }

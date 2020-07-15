@@ -1,7 +1,3 @@
-.all-campuses {
-  color: tomato;
-}
-
 /* campus view style */
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
@@ -28,8 +24,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  flex-flow: row wrap;
-  align-content: flex-start;
+  flex-flow: column wrap;
+  align-content: center;
   padding: 0.9em;
 }
 
@@ -49,10 +45,10 @@ body {
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 0px;
-  margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
-  font-family: montserrat;
+  max-width: 750px;
+  margin: 20px auto;
   color: #404646;
   font-size: 13px;
   font-family: "Open Sans", sans-serif;
@@ -60,7 +56,10 @@ body {
 .addcampus-form {
   width: 100%;
 }
-
+.input-intro {
+  display: block;
+  line-height: 1.3;
+}
 .input-style-row {
   display: flex;
   width: 80%;
@@ -73,6 +72,7 @@ body {
   -webkit-box-flex: 0;
   align-self: flex-start;
   margin-right: 5px;
+  margin-top: 20px;
   padding: 0.6em 1.2em;
   font-size: 14px;
   color: #fff;
@@ -120,21 +120,18 @@ body {
   right: 20px;
 }
 
-.campus-text button {
+.campus-text-button {
   min-width: 8.3em;
   -webkit-box-flex: 0;
   align-self: flex-start;
   margin-right: 5px;
   padding: 0.6em 1.2em;
   font-size: 14px;
-  color: #404646;
+  color: #404646 !important;
   background: none;
   border: 0.5px solid #777;
   border-radius: 2px;
   cursor: pointer;
-}
-.card-body button:hover {
-  border-color: #d099a0;
 }
 
 .campus-text {

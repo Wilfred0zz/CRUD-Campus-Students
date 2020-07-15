@@ -10,7 +10,7 @@ import {
 
 const RoutesView = () => {
   return (
-    <div>
+    <div className="page-container">
       <nav className="app-nav">
         <Link className="nav-item nav-link" to="/campuses">
           All Campuses

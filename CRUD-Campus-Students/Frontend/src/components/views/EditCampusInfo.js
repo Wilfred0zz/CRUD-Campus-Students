@@ -43,7 +43,7 @@ const AddCampusFormView = (props) => {
           ></input>
         </div>
 
-        <button className="create-campus-button">Create Campus</button>
+        <button className="create-campus-button">Save</button>
       </form>
     </div>
   );

@@ -23,8 +23,12 @@ const AllCampusesView = (props) => {
               <h4>Address: {campus.address}</h4>
               <p>Description: {campus.description}</p>
               <div className="button-end">
-                <button className="">Edit</button>
-                <button className="">Delete</button>
+                <Link className="campus-text-button" to={`/EditCampusInfo`}>
+                  Edit
+                </Link>
+                <Link className="campus-text-button" to={`/DeleteCampusInfo`}>
+                  Delete
+                </Link>
               </div>
             </div>
           </div>
