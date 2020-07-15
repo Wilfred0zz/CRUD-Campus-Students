@@ -19,7 +19,7 @@ class AllStudentsContainer extends Component {
       <AllStudentsView
         allStudents={this.props.allStudents}
         hello={this.props.hello}
-        deleteAStudent={this.deleteAStudent}
+        deleteAStudent={this.props.deleteAStudent}
       />
     );
   }

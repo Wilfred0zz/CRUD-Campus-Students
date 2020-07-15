@@ -57,8 +57,6 @@ AddStudentFormView.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  gpa: PropTypes.number.isRequired,
-  imageUrl: PropTypes.string.isRequired,
 };
 
 export default AddStudentFormView;

@@ -1,5 +1,5 @@
 //////////////////////Routing File for Student//////////////////////////////
-import express from "express";      //express needed for routing
+var express = require("express");     //express needed for routing
 const router = express.Router();
 const {Student} = require("../database/models"); 
 

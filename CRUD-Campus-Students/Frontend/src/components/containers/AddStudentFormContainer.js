@@ -24,6 +24,18 @@ class AddStudentFormContainer extends Component {
   
     handleSubmit = (e) => {
       e.preventDefault();
+      if(this.state.firstName === "" || !this.state.firstName){
+        return alert("please enter student first name");
+      }
+      if(this.state.lastName === "" || !this.state.lastName){
+        return alert("please make sure you enter your last name")
+      }
+      if(this.state.email === "" || !this.state.email){
+        return alert("please make sure you entered the students email") 
+      }
+      if(this.state.gpa < 0 || this.state.gpa > 4.0){
+        return alert("enter a valid gpa value")
+      }
       this.props.addStudent(this.state);
     };
     render() {
@@ -32,7 +44,6 @@ class AddStudentFormContainer extends Component {
           firstName={this.state.firstName}
           lastName={this.state.lastName}
           email={this.state.email}
-          gpa={this.state.gpa}
           image_URL={this.state.image_URL}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
