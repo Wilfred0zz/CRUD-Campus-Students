@@ -12,7 +12,7 @@ class AddStudentFormContainer extends Component {
         lastName: "",
         email: "",
         gpa: 0,
-        college: "",
+        college: 0,
       };
     }
   

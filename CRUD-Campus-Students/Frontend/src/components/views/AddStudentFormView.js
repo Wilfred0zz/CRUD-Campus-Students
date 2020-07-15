@@ -38,7 +38,7 @@ const AddStudentFormView = (props) => {
           ></input>
         </div>
         <div>
-          College/University Campus: {" "}
+          College/University Campus id: {" "}
           <input
             value={props.college}
             name="college"
