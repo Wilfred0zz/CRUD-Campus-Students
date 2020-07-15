@@ -18,6 +18,8 @@ const StudentView = (props) => {
       <h3>{props.student.lastName}</h3>
       <p>{props.student.email}</p>
       <p>{props.student.gpa}</p>
+      <p>{props.student.image_URL}</p>
+      <button onClick={() => props.deleteAStudent(props.student.id)}>Delete</button>
     </>
   );
 };

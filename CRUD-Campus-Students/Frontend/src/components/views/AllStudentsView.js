@@ -12,9 +12,10 @@ const AllStudentsView = (props) => {
       {props.allStudents.map((student) => (
         <div key={student.id}>
           <Link to={`/students/${student.id}`}>
-            <h1>{student.firstName + student.lastName}</h1>
+            <h1>{student.firstName + " " + student.lastName}</h1>
           </Link>
-            <p>{student.college}</p>
+            <p>{student.campus.name}</p>
+            <button onClick={() => props.deleteAStudent(student.id)}>Delete</button>
         </div>
       ))}
     </div>

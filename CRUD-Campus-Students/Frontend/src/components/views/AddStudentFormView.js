@@ -38,12 +38,12 @@ const AddStudentFormView = (props) => {
           ></input>
         </div>
         <div>
-          College/University Campus id: {" "}
+          Image Url:{" "}
           <input
-            value={props.college}
-            name="college"
+            value={props.imageUrl}
+            name="imageUrl"
             onChange={props.handleChange}
-            ></input>
+          ></input>
         </div>
         <button>Add Student</button>
       </form>
@@ -58,6 +58,7 @@ AddStudentFormView.propTypes = {
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   gpa: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string.isRequired,
 };
 
 export default AddStudentFormView;

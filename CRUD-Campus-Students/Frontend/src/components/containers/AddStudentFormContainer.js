@@ -12,7 +12,7 @@ class AddStudentFormContainer extends Component {
         lastName: "",
         email: "",
         gpa: 0,
-        college: 0,
+        image_URL: "",
       };
     }
   
@@ -33,7 +33,7 @@ class AddStudentFormContainer extends Component {
           lastName={this.state.lastName}
           email={this.state.email}
           gpa={this.state.gpa}
-          college={this.state.college}
+          image_URL={this.state.image_URL}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
