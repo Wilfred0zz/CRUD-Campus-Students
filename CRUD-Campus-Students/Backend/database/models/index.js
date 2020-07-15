@@ -8,5 +8,5 @@ Campus.hasMany(Student); //one campus to many students
 Student.belongsTo(Campus); //one-to-one student to campus
 
 module.exports = {
-  Campus,
+  Campus, Student
 };
