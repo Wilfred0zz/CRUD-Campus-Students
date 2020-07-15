@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const AllCampusesView = (props) => {
+  const { deleteCampus } = props;
+
   if (!props.allCampuses.length) {
     return <div className="all-campuses">There are no campuses</div>;
   }
@@ -26,9 +28,12 @@ const AllCampusesView = (props) => {
                 <Link className="campus-text-button" to={`/EditCampusInfo`}>
                   Edit
                 </Link>
-                <Link className="campus-text-button" to={`/DeleteCampusInfo`}>
+                <button
+                  className="campus-text-button"
+                  onClick={() => deleteCampus(campus.id)}
+                >
                   Delete
-                </Link>
+                </button>
               </div>
             </div>
           </div>
