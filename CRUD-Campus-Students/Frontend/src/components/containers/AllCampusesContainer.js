@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchAllCampusesThunk, deleteCampusThunk } from "../../thunks";
+import {
+  fetchAllCampusesThunk,
+  deleteCampusThunk,
+  editCampusThunk,
+} from "../../thunks";
 import { AllCampusesView } from "../views";
 
 // Smart container;
@@ -17,7 +21,48 @@ class AllCampusesContainer extends Component {
     };
   }
 
-  onEdit () 
+  onClickEdit = (campus) => {
+    this.setState({
+      id: campus.id,
+      name: campus.name,
+      address: campus.address,
+      description: campus.description,
+      imageUrl: campus.imageUrl,
+    });
+  };
+
+  onCancel = () => {
+    this.setState({
+      id: null,
+      name: null,
+      address: null,
+      description: null,
+      imageUrl: null,
+    });
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleEditSubmit = (e) => {
+    e.preventDefault();
+    let campus = {
+      id: this.state.id,
+      name: this.state.name,
+      address: this.state.address,
+      description: this.state.description,
+      imageUrl: this.state.imageUrl,
+    };
+    console.log(campus);
+    this.setState({
+      id: null,
+    });
+    this.props.editCampus(campus);
+  };
+
   componentDidMount() {
     console.log(this.props);
     this.props.fetchAllCampuses();
@@ -29,6 +74,15 @@ class AllCampusesContainer extends Component {
         allCampuses={this.props.allCampuses}
         hello={this.props.hello}
         deleteCampus={this.props.deleteCampus}
+        onClickEdit={this.onClickEdit}
+        editID={this.state.id}
+        name={this.state.name}
+        address={this.state.address}
+        description={this.state.description}
+        imageUrl={this.state.imageUrl}
+        onCancel={this.onCancel}
+        handleEditSubmit={this.handleEditSubmit}
+        handleChange={this.handleChange}
       />
     );
   }
@@ -47,6 +101,7 @@ const mapDispatch = (dispatch) => {
   return {
     fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
     deleteCampus: (id) => dispatch(deleteCampusThunk(id)),
+    editCampus: (campus) => dispatch(editCampusThunk(campus)),
   };
 };
 

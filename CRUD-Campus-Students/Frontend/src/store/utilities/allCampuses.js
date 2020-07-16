@@ -65,7 +65,7 @@ export const deleteCampusThunk = (id) => (dispatch) => {
 export const editCampusThunk = (campus) => (dispatch) => {
   return axios
     .put(`/api/campuses/${campus.id}`, campus)
-    .then((campus) => dispatch(editCampus(campus)))
+    .then(() => dispatch(editCampus(campus)))
     .catch((err) => console.log(err));
 };
 
