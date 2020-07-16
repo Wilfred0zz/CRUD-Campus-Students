@@ -7,6 +7,7 @@ import axios from "axios";
 const FETCH_ALL_CAMPUSES = "FETCH_ALL_CAMPUSES";
 const ADD_CAMPUS = "ADD_CAMPUS";
 const DELETE_CAMPUS = "DELETE_CAMPUS";
+const EDIT_CAMPUS = "EDIT_CAMPUS";
 
 // ACTION CREATORS;
 const fetchAllCampuses = (campuses) => {
@@ -27,6 +28,13 @@ const deleteCampus = (campus_id) => {
   return {
     type: DELETE_CAMPUS,
     payload: campus_id,
+  };
+};
+
+const editCampus = (campus) => {
+  return {
+    type: EDIT_CAMPUS,
+    payload: campus,
   };
 };
 
@@ -54,6 +62,13 @@ export const deleteCampusThunk = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+export const editCampusThunk = (campus) => (dispatch) => {
+  return axios
+    .put(`/api/campuses/${campus.id}`, campus)
+    .then(() => dispatch(editCampus(campus)))
+    .catch((err) => console.log(err));
+};
+
 // REDUCER;
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -63,6 +78,12 @@ const reducer = (state = [], action) => {
       return [...state, action.payload];
     case DELETE_CAMPUS:
       return state.filter((campus) => campus.id !== action.payload);
+    case EDIT_CAMPUS:
+      return state.map((campus) => {
+        if (campus.id === action.payload.id) {
+          return action.payload;
+        } else return campus;
+      });
     default:
       return state;
   }
