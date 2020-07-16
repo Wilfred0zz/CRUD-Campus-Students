@@ -31,19 +31,19 @@ export const fetchStudentThunk = (id) => (dispatch) => {
 export const deleteStudentThunk = (id) => (dispatch) => {
   return axios 
   .delete(`/api/students/${id}`)
-  .then((res) => res.data)
   .then(() => dispatch(deleteStudent(id)))
   .catch((err) => console.log(err));
 }
 
 
 // Reducer
-const reducer = (state = {}, action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_STUDENT:
       return action.payload;
     case DELETE_STUDENT:
-      return state.filter(student => student.id !== action.payload);
+      const newState = [...state];
+      return newState.filter((student) => student.id !== action.payload);
     default:
       return state;
   }

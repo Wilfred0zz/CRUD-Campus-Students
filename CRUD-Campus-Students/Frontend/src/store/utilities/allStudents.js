@@ -45,7 +45,6 @@ export const fetchAllStudentsThunk = () => (dispatch) => {
   export const deleteStudentThunk = (id) => (dispatch) => {
     return axios 
     .delete(`/api/students/${id}`)
-    .then((res) => res.data)
     .then(() => dispatch(deleteStudent(id)))
     .catch((err) => console.log(err));
   }
@@ -58,7 +57,7 @@ export const fetchAllStudentsThunk = () => (dispatch) => {
       case ADD_STUDENT:
         return [...state, action.payload];
       case DELETE_STUDENT:
-        return state.filter(student => student.id !== action.payload);
+        return state.filter((student) => student.id !== action.payload);
       default:
         return state;
     }

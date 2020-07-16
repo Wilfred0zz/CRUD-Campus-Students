@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const AddStudentFormView = (props) => {
+  console.log(props.allCampuses)
   return (
     <div>
       <form onSubmit={props.handleSubmit}>
@@ -28,6 +29,17 @@ const AddStudentFormView = (props) => {
             name="email"
             onChange={props.handleChange}
           ></input>
+        </div>
+        <div>
+          Campus:{" "}
+          <select
+            value={props.campusId}
+            name="campusId"
+            onChange={props.handleChange}
+          >
+            {props.allCampuses.map(campus => <option value= {campus.id} key={campus.name}> {campus.name} </option>)}
+            <option value= ''> No Campus</option>
+          </select>
         </div>
         <div>
           GPA:{" "}

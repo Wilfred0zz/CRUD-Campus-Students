@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {addStudentThunk} from '../../thunks';
+import {addStudentThunk, fetchAllCampusesThunk} from '../../thunks';
 import {AddStudentFormView} from '../views';
 
 class AddStudentFormContainer extends Component {
@@ -13,9 +13,14 @@ class AddStudentFormContainer extends Component {
         email: "",
         gpa: 0,
         image_URL: "",
+        campusId: "",
       };
     }
-  
+    
+    componentDidMount(){
+      this.props.fetchAllCampuses()
+    }
+
     handleChange = (e) => {
       this.setState({
         [e.target.name]: e.target.value,
@@ -36,7 +41,9 @@ class AddStudentFormContainer extends Component {
       if(this.state.gpa < 0 || this.state.gpa > 4.0){
         return alert("enter a valid gpa value")
       }
+      console.log(this.state)
       this.props.addStudent(this.state);
+      window.location="/students"
     };
     render() {
       return (
@@ -44,7 +51,9 @@ class AddStudentFormContainer extends Component {
           firstName={this.state.firstName}
           lastName={this.state.lastName}
           email={this.state.email}
+          campusId={this.state.campusId}
           image_URL={this.state.image_URL}
+          allCampuses= {this.props.allCampuses}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
@@ -52,15 +61,26 @@ class AddStudentFormContainer extends Component {
     }
   }
   
-  const mapDispatch = (dispatch) => {
+  const mapState = (state) => {
     return {
-      addStudent: (student) => dispatch(addStudentThunk(student)),
+      hello: "hello world!!!",
+      allCampuses: state.allCampuses,
     };
   };
   
-  AddStudentFormContainer.propTypes = {
-    addStudent: PropTypes.func.isRequired,
+
+  const mapDispatch = (dispatch) => {
+    return {
+      addStudent: (student) => dispatch(addStudentThunk(student)),
+      fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
+    };
   };
   
-  export default connect(null, mapDispatch)(AddStudentFormContainer);
+
+  AddStudentFormContainer.propTypes = {
+    addStudent: PropTypes.func.isRequired,
+    fetchAllCampuses : PropTypes.func.isRequired,
+  };
+  
+  export default connect(mapState, mapDispatch)(AddStudentFormContainer);
   

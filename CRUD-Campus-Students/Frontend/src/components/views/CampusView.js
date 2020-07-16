@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 /**
  * 
@@ -18,6 +19,17 @@ const CampusView = (props) => {
       <h3>{props.campus.address}</h3>
       <p>{props.campus.description}</p>
       <p>{props.campus.students} Students</p>
+      {props.allStudents.map(student => {
+        return student.campusId === props.campus.id ?
+        <div key={student.id}> 
+           <Link to={`/students/${student.id}`}>
+            <h4>{student.firstName + " " + student.lastName}</h4>
+          </Link>
+          <h5>{props.campus.name}</h5>
+        </div>
+        :
+        null
+      })}
     </div>
   );
 };
