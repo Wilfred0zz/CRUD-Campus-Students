@@ -6,6 +6,18 @@ import { AllCampusesView } from "../views";
 
 // Smart container;
 class AllCampusesContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      id: null,
+      name: null,
+      address: null,
+      description: null,
+      imageUrl: null,
+    };
+  }
+
+  onEdit () 
   componentDidMount() {
     console.log(this.props);
     this.props.fetchAllCampuses();
