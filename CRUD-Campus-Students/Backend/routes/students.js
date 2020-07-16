@@ -36,7 +36,7 @@ router.get("/:id",
 router.post("/",
     async(req, res, next) =>{  
         //take data from request body for each column of Student
-        const {firstName, lastName, email, imageUrl, gpa} = req.body;
+        const {firstName, lastName, email, imageUrl, gpa, campusId} = req.body;
         //store data received from body in object to be added to database
         const studentObj = {
             firstName: firstName,
@@ -44,6 +44,7 @@ router.post("/",
             email: email,
             imageUrl: imageUrl,
             gpa: gpa,
+            campusId: campusId || null
         };
         console.log("Student to be added data: ", studentObj);
 
@@ -65,7 +66,7 @@ router.put("/:id",
     async (req, res, next) => {
         const {id} = req.params; 
         //tale data from form 
-        const {firstName, lastName, email, imageUrl, gpa} = req.body;
+        const {firstName, lastName, email, imageUrl, gpa, campusId} = req.body;
         //set data to object with uodated info
         const studentObj = {
             firstName: firstName,
@@ -73,6 +74,7 @@ router.put("/:id",
             email: email,
             imageUrl: imageUrl,
             gpa: gpa,
+            campusId: campusId || null
         };
         console.log("Updated student info: ", studentObj);
         try {
