@@ -14,6 +14,7 @@ class AllStudentsContainer extends Component {
 
   deleteAStudent = (id) =>{
     this.props.deleteStudent(id);
+    window.location='/students'
   }
   render() {
 
