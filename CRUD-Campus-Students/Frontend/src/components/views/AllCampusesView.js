@@ -21,7 +21,7 @@ const AllCampusesView = (props) => {
                   className="editcampus-form"
                   onSubmit={props.handleEditSubmit}
                 >
-                  <h1 className="input-intro">Enter the Campus Info Below</h1>
+                  <h1 className="input-intro">Edit the Campus Info Below</h1>
                   <div className="input-style-row">
                     {/* Name:{" "} */}
                     <input
@@ -65,7 +65,13 @@ const AllCampusesView = (props) => {
                   >
                     Cancel
                   </button>
-                  <input type="submit" value="submit"></input>
+                  <button
+                    className="cancel-campus-button"
+                    type="submit"
+                    value="submit"
+                  >
+                    Save
+                  </button>
                 </form>
               </div>
             ) : (
