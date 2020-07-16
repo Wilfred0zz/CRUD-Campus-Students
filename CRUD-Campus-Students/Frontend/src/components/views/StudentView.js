@@ -95,7 +95,7 @@ const StudentView = (props) => {
               null
         }</div>
         <button onClick={() => onClickEdit(props.student)}>Edit Student</button>
-        <button onClick={() => deleteAStudent(props.student.id)}>Delete</button>
+        {/* <button onClick={() => deleteAStudent(props.student.id)}>Delete</button> */}
         </>
       )}
 };
