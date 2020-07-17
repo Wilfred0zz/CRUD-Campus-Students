@@ -27,6 +27,9 @@ const RoutesView = () => {
         <Link className="nav-item nav-link" to="/students" id="students-tab">
           Students
         </Link>
+        <Link className="nav-item nav-link" to="/students/add">
+          Add New Student
+        </Link>
       </nav>
       <Switch>
         <Route exact path="/" component={AllCampusesContainer} />
