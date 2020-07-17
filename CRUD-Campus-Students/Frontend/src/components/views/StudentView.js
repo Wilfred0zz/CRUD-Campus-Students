@@ -14,7 +14,9 @@ import {Link } from "react-router-dom"
 const StudentView = (props) => {
   const {deleteAStudent, onClickEdit, editID, allCampuses, student} = props;
   //const student = props.student;
-    if(student.id === editID) {
+  console.log("Student id: ", student.id);
+  console.log("edit id:", editID);
+    if(student.id === editID ) {
       return(
         <div key={student.id} className="editStudent-panel">
           <form className="editStudent-form" onSubmit={props.handleEditSubmit}>
@@ -87,14 +89,14 @@ const StudentView = (props) => {
         <p>GPA: {student.gpa}</p>
         <p>{student.image_URL}</p>
         <div>{ 
-              student.campusId && props.allCampuses[student.campusId] ? 
+              student.campusId && allCampuses[student.campusId] ? 
               <Link to={`/campuses/${student.campusId}`}>
                 <h4>{props.allCampuses[student.campusId].name}</h4>
               </Link>
               : 
               null
         }</div>
-        <button onClick={() => onClickEdit(props.student)}>Edit Student</button>
+        <button onClick={() => onClickEdit(student)}>Edit Student</button>
         {/* <button onClick={() => deleteAStudent(props.student.id)}>Delete</button> */}
         </>
       )}

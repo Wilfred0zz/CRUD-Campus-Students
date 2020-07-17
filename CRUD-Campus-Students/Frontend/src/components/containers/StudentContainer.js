@@ -9,8 +9,8 @@ import {
 } from "../../thunks";
 
 class StudentContainer extends Component {
-  conrtuctor(){
-    //super();
+  constructor(){
+    super();
     this.state = {
       //initialization of student data members, to be passed as a state
       id: null,
@@ -24,6 +24,9 @@ class StudentContainer extends Component {
   }
 
   onClickEdit = (student) =>{
+    console.log("Start on click edit...");
+    console.log("Current State: ", this.state);
+    console.log("Student: ", student);
     this.setState({
       id: student.id,
       firstName: student.firstName,
@@ -32,7 +35,8 @@ class StudentContainer extends Component {
       imageUrl: student.imageUrl,
       gpa: student.gpa,
       //campusId: student.campusId,
-    });
+    }, () => console.log("States updated, now state is: ", this.state) );
+    
   };
 
   onCancel = () => {
@@ -62,7 +66,7 @@ class StudentContainer extends Component {
       email: this.state.email, 
       imageUrl: this.state.imageUrl,
       gpa: this.state.gpa,
-      // campusId: null,
+      campusId: this.state.campusId,
     };
     console.log(student);
     this.setState({
@@ -91,13 +95,13 @@ class StudentContainer extends Component {
       deleteAStudent={this.props.deleteAStudent} 
       allCampuses={campuses}
       onClickEdit={this.onClickEdit}
-      editId={this.props.student.id}
-      firstName={this.props.student.firstName}
-      lastname={this.props.student.lastname}
-      email={this.props.student.email}
-      imageUrl={this.props.student.imageUrl}
-      gpa={this.props.student.gpa}
-      campusId={this.props.student.campusId}
+      editId={this.state.id}
+      firstName={this.state.firstName}
+      lastname={this.state.lastName}
+      email={this.state.email}
+      imageUrl={this.state.imageUrl}
+      gpa={this.state.gpa}
+      campusId={this.state.campusId}
       onCancel={this.onCancel}
       handleEditSubmit={this.handleEditSubmit}
       handleChange={this.handleChange}
