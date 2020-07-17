@@ -8,11 +8,12 @@ const AllStudentsView = (props) => {
   }
 
   return (
-    <div className="all-students">
+    <div className="all-campuses">
+    <div className="student-content">
       {props.allStudents.map((student) => (
-        <div key={student.id}>
+        <div key={student.id} className="student-text">
           <Link to={`/students/${student.id}`}>
-            <h1>{student.firstName + " " + student.lastName}</h1>
+            <h2>{student.firstName + " " + student.lastName}</h2>
           </Link>
           { 
             student.campusId && props.allCampuses[student.campusId] ? 
@@ -23,9 +24,10 @@ const AllStudentsView = (props) => {
             null
           }
 
-            <button onClick={() => props.deleteAStudent(student.id)} >Delete</button>
+            <button className="campus-text-button" onClick={() => props.deleteAStudent(student.id)} >Delete</button>
         </div>
       ))}
+    </div>
     </div>
   );
 };
