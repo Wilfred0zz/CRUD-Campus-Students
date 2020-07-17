@@ -240,3 +240,19 @@ select{
   -moz-appearance: none;
   appearance: none;
 }
+.student-content{
+  margin: 0.9em;
+  height: 8em;
+  max-width: 45em;
+  -webkit-box-flex: 1;
+  display: -webkit-box;
+  background-color: white;
+  box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+}
+
+.student-text a {
+  color: #d07777;
+}
+.campus-text a:hover {
+  text-decoration: underline;
+}

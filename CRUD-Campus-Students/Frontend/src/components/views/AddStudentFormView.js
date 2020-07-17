@@ -26,7 +26,6 @@ const AddStudentFormView = (props) => {
         <div className="input-style-row">
           Email:{" "} 
           <input
-
             value={props.email}
             name="email"
             onChange={props.handleChange}
