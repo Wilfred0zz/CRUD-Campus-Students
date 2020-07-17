@@ -227,3 +227,32 @@ body {
     max-width: 45%;
   }
 }
+
+select{
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  height: 50px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #CCC;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.student-content{
+  margin: 0.9em;
+  height: 8em;
+  max-width: 45em;
+  -webkit-box-flex: 1;
+  display: -webkit-box;
+  background-color: white;
+  box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+}
+
+.student-text a {
+  color: #d07777;
+}
+.campus-text a:hover {
+  text-decoration: underline;
+}

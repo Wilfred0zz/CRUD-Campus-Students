@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 const AddStudentFormView = (props) => {
   console.log(props.allCampuses)
   return (
-    <div>
-      <form onSubmit={props.handleSubmit}>
-        <div>
+    <div className="addcampuses-panel">
+      <form className="addcampus-form" onSubmit={props.handleSubmit}>
+      <h1 className="input-intro">Enter the Student Info Below</h1>
+        <div className="input-style-row">
           First Name:{" "}
           <input
             value={props.firstName}
@@ -14,7 +15,7 @@ const AddStudentFormView = (props) => {
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
+        <div className="input-style-row">
           Last Name:{" "}
           <input
             value={props.lastName}
@@ -22,15 +23,15 @@ const AddStudentFormView = (props) => {
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
-          email:{" "}
+        <div className="input-style-row">
+          Email:{" "} 
           <input
             value={props.email}
             name="email"
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
+        <div className="input-style-row">
           Campus:{" "}
           <select
             value={props.campusId}
@@ -41,7 +42,7 @@ const AddStudentFormView = (props) => {
             <option value= ''> No Campus</option>
           </select>
         </div>
-        <div>
+        <div className="input-style-row">
           GPA:{" "}
           <input
             value={props.gpa}
@@ -49,7 +50,7 @@ const AddStudentFormView = (props) => {
             onChange={props.handleChange}
           ></input>
         </div>
-        <div>
+        <div className="input-style-row">
           Image Url:{" "}
           <input
             value={props.imageUrl}
@@ -57,7 +58,7 @@ const AddStudentFormView = (props) => {
             onChange={props.handleChange}
           ></input>
         </div>
-        <button>Add Student</button>
+        <button className="create-campus-button">Add Student</button>
       </form>
     </div>
   );
