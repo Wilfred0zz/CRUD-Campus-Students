@@ -12,11 +12,11 @@ import {Link } from "react-router-dom"
  */
 
 const StudentView = (props) => {
-  const {deleteAStudent, onClickEdit, editID, allCampuses, student} = props;
+  const {deleteAStudent, onClickEdit, editId, allCampuses, student} = props;
   //const student = props.student;
   console.log("Student id: ", student.id);
-  console.log("edit id:", editID);
-    if(student.id === editID ) {
+  console.log("edit id:", editId);
+    if(editId === student.id ) {
       return(
         <div key={student.id} className="editStudent-panel">
           <form className="editStudent-form" onSubmit={props.handleEditSubmit}>
@@ -24,7 +24,7 @@ const StudentView = (props) => {
               <div className="input-style-row">
                 {/* firstName*/}
                   <input
-                    defaultValue={student.firstName}
+                    defaultValue={props.firstName}
                     name="first name"
                     placeholder="First Name"
                     onChange={props.handleChange}
@@ -33,7 +33,7 @@ const StudentView = (props) => {
               <div className="input-style-row">
                 {/* lastName */}
                 <input
-                  defaultValue={student.lastName}
+                  defaultValue={props.lastName}
                   name="last name"
                   placeholder="Last Name"
                   onChange={props.handleChange}
@@ -42,7 +42,7 @@ const StudentView = (props) => {
               <div className="input-style-row">
                 {/* email */}
                 <input
-                  defaultValue={student.email}
+                  defaultValue={props.email}
                   name="email"
                   placeholder="Email"
                   onChange={props.handleChange}
@@ -51,7 +51,7 @@ const StudentView = (props) => {
               <div className="input-style-row">
                 {/*gpa*/}
                 <input
-                  defaultValue={student.gpa}
+                  defaultValue={props.gpa}
                   name="gpa"
                   placeholder="GPA"
                   onChange={props.handleChange}
@@ -74,11 +74,11 @@ const StudentView = (props) => {
                 className="cancel-student-button"
                 onClick={() => props.onCancel}
               >Cancel</button>
-              <button
+              <input 
                 className="save-student-button"
                 type="submit"
                 value="submit"
-              >Save</button>
+              ></input>
           </form>
         </div>
       );} else{

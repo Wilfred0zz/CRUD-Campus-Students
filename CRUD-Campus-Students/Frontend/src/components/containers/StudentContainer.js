@@ -19,7 +19,7 @@ class StudentContainer extends Component {
       email: null, 
       imageUrl: null,
       gpa: null,
-      // campusId: null,
+      campusId: null,
     };
   }
 
@@ -71,6 +71,11 @@ class StudentContainer extends Component {
     console.log(student);
     this.setState({
       id: null,
+      firstName: null,
+      lastName: null,
+      email: null, 
+      imageUrl: null,
+      gpa: null,
     });
     this.props.editStudent(student);
   };
